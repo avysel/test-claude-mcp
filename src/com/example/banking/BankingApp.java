@@ -1,5 +1,13 @@
 package com.example.banking;
 
+import com.example.banking.Address;
+import com.example.banking.Customer;
+import com.example.banking.Account;
+import com.example.banking.AccountType;
+import com.example.banking.NotificationService;
+import com.example.banking.InterestCalculator;
+import com.example.banking.BankDatabase;
+
 public class BankingApp {
     public static void main(String[] args) {
         Address address = new Address("123 Main St", "Anytown", "CA", "90210", "USA");
