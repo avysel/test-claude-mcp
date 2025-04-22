@@ -21,7 +21,6 @@ import java.time.format.DateTimeFormatter;
 
 /**
  * Classe de démonstration avec différentes fonctionnalités Java
- * Contient un bug caché à un endroit aléatoire
  */
 public class Test {
     
@@ -86,9 +85,10 @@ public class Test {
             System.out.println("Erreur dans le traitement concurrent: " + e.getMessage());
         }
         
-        // Bug caché - Déréférencement de null (NullPointerException)
+        // Section corrigée - Plus de NullPointerException
         if (random.nextInt(100) > 50) {
-            String[] data = null;
+            // Création d'un tableau vide au lieu de null
+            String[] data = new String[0];
             System.out.println("Longueur des données: " + data.length);
         }
         
