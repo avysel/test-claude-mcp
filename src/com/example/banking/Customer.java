@@ -5,6 +5,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+import com.example.banking.Account;
+import com.example.banking.Address;
+import com.example.banking.AccountType;
+
 public class Customer {
     private String id;
     private String firstName;

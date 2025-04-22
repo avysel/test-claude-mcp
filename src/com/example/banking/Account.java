@@ -5,6 +5,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+import com.example.banking.Customer;
+import com.example.banking.Transaction;
+import com.example.banking.AccountType;
+import com.example.banking.TransactionType;
+import com.example.banking.NotificationService;
+import com.example.banking.InterestCalculator;
+
 public class Account {
     private String id;
     private Customer owner;
