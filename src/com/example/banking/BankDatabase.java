@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.example.banking.Customer;
+import com.example.banking.Account;
+
 public class BankDatabase {
     private static Map<String, Customer> customers = new HashMap<>();
     private static Map<String, Account> accounts = new HashMap<>();
