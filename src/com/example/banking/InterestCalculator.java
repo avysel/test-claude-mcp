@@ -5,6 +5,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import com.example.banking.Account;
+import com.example.banking.AccountType;
+import com.example.banking.Transaction;
+import com.example.banking.BankDatabase;
+
 public class InterestCalculator {
     private static Map<String, Double> interestRates = new HashMap<>();
     private static Map<String, Double> accumulatedInterest = new HashMap<>();
