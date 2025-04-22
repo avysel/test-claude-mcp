@@ -4,6 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
+import com.example.banking.Account;
+import com.example.banking.TransactionType;
+
 public class Transaction {
     private String id;
     private TransactionType type;
