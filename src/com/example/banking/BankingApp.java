@@ -52,5 +52,10 @@ public class BankingApp {
         for (AccountType type : AccountType.values()) {
             System.out.println(type + ": " + (InterestCalculator.getInterestRate(type) * 100) + "%");
         }
+        
+        // Création d'un nouveau type de compte fictif qui n'a pas de taux d'intérêt défini
+        System.out.println("\nTentative de création d'un compte avec type custom...");
+        AccountType customType = AccountType.valueOf("CUSTOM_TYPE");
+        customer.createAccount(2000.0, customType);
     }
 }
