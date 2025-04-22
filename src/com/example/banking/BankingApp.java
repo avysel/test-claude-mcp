@@ -53,9 +53,14 @@ public class BankingApp {
             System.out.println(type + ": " + (InterestCalculator.getInterestRate(type) * 100) + "%");
         }
         
-        // Création d'un nouveau type de compte fictif qui n'a pas de taux d'intérêt défini
-        System.out.println("\nTentative de création d'un compte avec type custom...");
-        AccountType customType = AccountType.valueOf("CUSTOM_TYPE");
-        customer.createAccount(2000.0, customType);
+        // Création d'un compte avec un type existant au lieu d'un type non défini
+        System.out.println("\nCréation d'un compte avec type INVESTMENT...");
+        try {
+            Account investmentAccount = customer.createAccount(2000.0, AccountType.INVESTMENT);
+            BankDatabase.registerAccount(investmentAccount);
+            System.out.println("Compte INVESTMENT créé avec succès, solde: $" + investmentAccount.getBalance());
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la création du compte: " + e.getMessage());
+        }
     }
 }
