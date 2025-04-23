@@ -4,5 +4,6 @@ public enum AccountType {
     CHECKING,
     SAVINGS,
     CREDIT,
-    INVESTMENT
+    INVESTMENT,
+    CUSTOM_TYPE
 }
