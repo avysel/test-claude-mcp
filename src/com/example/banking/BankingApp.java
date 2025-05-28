@@ -10,6 +10,8 @@ import com.example.banking.BankDatabase;
 
 public class BankingApp {
     public static void main(String[] args) {
+        System.out.println("Application is starting...");
+        
         Address address = new Address("123 Main St", "Anytown", "CA", "90210", "USA");
         Customer customer = new Customer("John", "Doe", "john.doe@example.com", "555-123-4567", address);
         
@@ -53,10 +55,9 @@ public class BankingApp {
             System.out.println(type + ": " + (InterestCalculator.getInterestRate(type) * 100) + "%");
         }
         
-        // Création d'un nouveau type de compte CUSTOM_TYPE
-        System.out.println("\nTentative de création d'un compte avec type CUSTOM_TYPE...");
-        Account customAccount = customer.createAccount(2000.0, AccountType.CUSTOM_TYPE);
-        BankDatabase.registerAccount(customAccount);
-        System.out.println("Compte CUSTOM_TYPE créé avec succès, solde: $" + customAccount.getBalance());
+        // Création d'un nouveau type de compte fictif qui n'a pas de taux d'intérêt défini
+        System.out.println("\nTentative de création d'un compte avec type custom...");
+        AccountType customType = AccountType.valueOf("CUSTOM_TYPE");
+        customer.createAccount(2000.0, customType);
     }
 }
