@@ -152,15 +152,14 @@ classDiagram
         INTEREST
     }
 
-    %% Relationships
-    Customer ||--o{ Account : owns
-    Customer ||--|| Address : has
-    Account ||--o{ Transaction : contains
-    Account ||--|| AccountType : has
-    Account ||--|| Customer : belongs to
-    Transaction ||--|| TransactionType : has
-    Transaction ||--o| Account : source
-    Transaction ||--o| Account : destination
+    Customer "1" --> "1" Address : has
+    Customer "1" --> "*" Account : owns
+    Account "1" --> "1" Customer : belongsTo
+    Account "1" --> "1" AccountType : hasType
+    Account "1" --> "*" Transaction : contains
+    Transaction "1" --> "1" TransactionType : hasType
+    Transaction "*" --> "0..1" Account : source
+    Transaction "*" --> "0..1" Account : destination
     
     BankDatabase ..> Customer : manages
     BankDatabase ..> Account : manages
@@ -180,13 +179,31 @@ classDiagram
 
 Ce diagramme de classes représente l'architecture de l'application bancaire Java. L'application est organisée autour des entités principales suivantes :
 
+### Classes principales
+
 - **Customer** : Représente un client de la banque avec ses informations personnelles et ses comptes
 - **Account** : Représente un compte bancaire avec les opérations de base (dépôt, retrait, transfert)
 - **Transaction** : Enregistre toutes les transactions effectuées sur les comptes
 - **Address** : Encapsule les informations d'adresse du client
+
+### Services
+
 - **BankDatabase** : Service statique pour la gestion des données clients et comptes
 - **NotificationService** : Service de notifications (email, SMS)
 - **InterestCalculator** : Service de calcul et application des intérêts
-- **BankingApp** : Classe principale d'application
 
-Les énumérations **AccountType** et **TransactionType** définissent respectivement les types de comptes et de transactions supportés.
+### Classe principale
+
+- **BankingApp** : Classe principale d'application avec la méthode main
+
+### Énumérations
+
+- **AccountType** : Types de comptes (CHECKING, SAVINGS, CREDIT, INVESTMENT)
+- **TransactionType** : Types de transactions (DEPOSIT, WITHDRAWAL, TRANSFER, etc.)
+
+### Relations principales
+
+- Un client possède une adresse et peut avoir plusieurs comptes
+- Chaque compte appartient à un client et peut avoir plusieurs transactions
+- Les transactions peuvent avoir un compte source et/ou destination
+- Les services utilitaires interagissent avec les entités principales pour fournir leurs fonctionnalités
